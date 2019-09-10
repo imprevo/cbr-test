@@ -1,27 +1,23 @@
 import * as React from 'react';
 import { elementReducer } from '../reducers/elementReducer';
-import { Element, Id } from '../types';
+import { TElement, TId } from '../types';
 import { elementsData } from './elementsData';
 
-const tempData = {
-  data: elementsData,
-};
-
 export function useElements() {
-  const [state, dispatch] = React.useReducer(elementReducer, tempData);
+  const [state, dispatch] = React.useReducer(elementReducer, elementsData);
 
   const add = React.useCallback(
-    (payload: Element) => dispatch({ type: 'add', payload }),
+    (payload: TElement) => dispatch({ type: 'add', payload }),
     [dispatch]
   );
 
   const edit = React.useCallback(
-    (payload: Element) => dispatch({ type: 'edit', payload }),
+    (payload: TElement) => dispatch({ type: 'edit', payload }),
     [dispatch]
   );
 
   const remove = React.useCallback(
-    (payload: Id) => dispatch({ type: 'remove', payload }),
+    (payload: TId) => dispatch({ type: 'remove', payload }),
     [dispatch]
   );
 

@@ -1,16 +1,16 @@
-import { Element, Id } from '../types';
+import { TElement, TId, TElementData } from '../types';
+import { omit } from '../utils/object';
 
-type State = {
-  data: Element[];
-};
+type State = TElementData;
 
-type ActionAdd = { type: 'add'; payload: Element };
-type ActionEdit = { type: 'edit'; payload: Element };
-type ActionRemove = { type: 'remove'; payload: Id };
+type ActionAdd = { type: 'add'; payload: TElement };
+type ActionEdit = { type: 'edit'; payload: TElement };
+type ActionRemove = { type: 'remove'; payload: TId };
 type Actions = ActionAdd | ActionEdit | ActionRemove;
 
 const initialState: State = {
-  data: [],
+  data: {},
+  root: [],
 };
 
 export function elementReducer(state: State = initialState, action: Actions) {
@@ -18,22 +18,24 @@ export function elementReducer(state: State = initialState, action: Actions) {
     case 'add':
       return {
         ...state,
-        data: [...state.data, action.payload],
+        data: {
+          ...state.data,
+          [action.payload.id]: action.payload,
+        },
       };
     case 'edit':
       return {
         ...state,
-        data: state.data.map(element => {
-          if (action.payload.id === element.id) {
-            return action.payload;
-          }
-          return element;
-        }),
+        data: {
+          ...state.data,
+          [action.payload.id]: action.payload,
+        },
       };
     case 'remove':
       return {
         ...state,
-        data: state.data.filter(({ id }) => id !== action.payload),
+        data: omit(state.data, action.payload),
+        root: state.root.filter(id => id !== action.payload),
       };
 
     default:

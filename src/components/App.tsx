@@ -4,5 +4,5 @@ import { ElementList } from './ElementList';
 
 export const App: React.FC = () => {
   const { state } = useElements();
-  return <ElementList list={state.data} />;
+  return <ElementList list={state.root} data={state.data} />;
 };

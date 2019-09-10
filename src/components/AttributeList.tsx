@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Attribute } from '../types';
+import { TAttributeList } from '../types';
 import { AttributeItem } from './AttributeItem';
 
 type Props = {
-  list: Attribute[];
+  list: TAttributeList;
 };
 
 export const AttributeList: React.FC<Props> = ({ list }) => {

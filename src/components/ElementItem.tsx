@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { AttributeList } from './AttributeList';
-import { Element } from '../types';
+import { TElement } from '../types';
 
 type Props = {
-  data: Element;
+  data: TElement;
 };
 
 export const ElementItem: React.FC<Props> = ({ data }) => {
