@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TElement, TId } from '../types';
 import { elementReducer } from '../reducers/elementReducer';
-import { elementsData } from '../hooks/elementsData';
+import { elementsData } from '../mocks/elements';
 
 const useElementReducer = () => React.useReducer(elementReducer, elementsData);
 
