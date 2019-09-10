@@ -1,29 +1,37 @@
 import * as React from 'react';
-import { TIdList } from '../types';
+import { TIdList, TId } from '../types';
 import { ElementItem } from './ElementItem';
-import { useElementState, useElementAction } from './ElementContext';
+import { useElementActions, useElementById } from './ElementContext';
 
-type Props = {
+type ElementListProps = {
   list: TIdList;
 };
 
-export const ElementList: React.FC<Props> = ({ list }) => {
-  const { data } = useElementState();
-  const { remove } = useElementAction();
-
+export const ElementList: React.FC<ElementListProps> = ({ list }) => {
   return (
     <ol>
-      {list.map(id => {
-        const element = data[id];
-        return (
-          <li key={id}>
-            <ElementItem data={element} onRemove={remove} />
-            {element.children.length > 0 && (
-              <ElementList list={element.children} />
-            )}
-          </li>
-        );
-      })}
+      {list.map(id => (
+        <li key={id}>
+          <ElementListItem id={id} />
+        </li>
+      ))}
     </ol>
+  );
+};
+
+type ElementListItemProps = {
+  id: TId;
+};
+
+export const ElementListItem: React.FC<ElementListItemProps> = ({ id }) => {
+  const element = useElementById(id);
+  const { remove } = useElementActions();
+  const onRemove = React.useCallback(() => remove(id), [remove, id]);
+
+  return (
+    <>
+      <ElementItem data={element} onRemove={onRemove} />
+      {element.children.length > 0 && <ElementList list={element.children} />}
+    </>
   );
 };

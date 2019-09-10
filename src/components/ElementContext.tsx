@@ -12,8 +12,13 @@ const StateContext = React.createContext<ReturnType<typeof useElementReducer>>([
 
 export const useElementState = () => React.useContext(StateContext)[0];
 
-export const useElementAction = () => {
-  const dispatch = React.useContext(StateContext)[1];
+export const useElementById = (id: TId) => {
+  const { data } = useElementState();
+  return data[id];
+};
+
+export const useElementActions = () => {
+  const [, dispatch] = React.useContext(StateContext);
 
   const add = React.useCallback(
     (payload: TElement) => dispatch({ type: 'add', payload }),
