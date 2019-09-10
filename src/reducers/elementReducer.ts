@@ -1,5 +1,5 @@
 import { TElement, TId, TElementData } from '../types';
-import { omit } from '../utils/object';
+import { removeChildById as omitChildById } from '../utils/element';
 
 type State = TElementData;
 
@@ -8,12 +8,7 @@ type ActionEdit = { type: 'edit'; payload: TElement };
 type ActionRemove = { type: 'remove'; payload: TId };
 type Actions = ActionAdd | ActionEdit | ActionRemove;
 
-const initialState: State = {
-  data: {},
-  root: [],
-};
-
-export function elementReducer(state: State = initialState, action: Actions) {
+export function elementReducer(state: State, action: Actions) {
   switch (action.type) {
     case 'add':
       return {
@@ -34,7 +29,7 @@ export function elementReducer(state: State = initialState, action: Actions) {
     case 'remove':
       return {
         ...state,
-        data: omit(state.data, action.payload),
+        data: omitChildById(state.data, action.payload),
         root: state.root.filter(id => id !== action.payload),
       };
 

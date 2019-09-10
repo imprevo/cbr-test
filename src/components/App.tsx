@@ -1,8 +1,9 @@
-import React from 'react';
-import { useElements } from '../hooks/useElements';
-import { ElementList } from './ElementList';
+import * as React from 'react';
+import { ElementProvider } from './ElementContext';
+import { ElementListRoot } from './ElementListRoot';
 
-export const App: React.FC = () => {
-  const { state } = useElements();
-  return <ElementList list={state.root} data={state.data} />;
-};
+export const App: React.FC = () => (
+  <ElementProvider>
+    <ElementListRoot />
+  </ElementProvider>
+);

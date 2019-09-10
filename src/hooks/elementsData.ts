@@ -23,7 +23,7 @@ export const elementsData: TElementData = {
     el4: {
       id: 'el4',
       attributes: [],
-      children: [],
+      children: ['el5'],
     },
     el5: {
       id: 'el5',
