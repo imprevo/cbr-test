@@ -11,11 +11,12 @@ type Props = {
 
 export const EditElementModal: React.FC<Props> = ({ id, name }) => {
   const [show, setShow] = React.useState(false);
-  const close = () => setShow(false);
+  const close = React.useCallback(() => setShow(false), []);
+  const open = React.useCallback(() => setShow(true), []);
 
   return (
     <>
-      <Button onClick={() => setShow(true)}>edit element</Button>
+      <Button onClick={open}>Edit element</Button>
       <Modal show={show} title={`Edit element - ${name}`} onClose={close}>
         <EditElementForm id={id} onClose={close} />
       </Modal>

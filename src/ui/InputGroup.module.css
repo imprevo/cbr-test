@@ -1,4 +1,12 @@
-.input {
+.input-group {
   display: flex;
+  margin-bottom: 1rem;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+.align-between {
   justify-content: space-between;
 }
