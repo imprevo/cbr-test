@@ -9,13 +9,13 @@ type ElementListProps = {
 
 export const ElementList: React.FC<ElementListProps> = ({ list }) => {
   return (
-    <ol>
+    <ul>
       {list.map(id => (
         <li key={id}>
           <ElementListItem id={id} />
         </li>
       ))}
-    </ol>
+    </ul>
   );
 };
 

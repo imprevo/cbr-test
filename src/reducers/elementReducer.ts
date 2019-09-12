@@ -74,7 +74,10 @@ export function elementReducer(state: State, action: Actions) {
         ...state,
         data: {
           ...state.data,
-          [action.payload.id]: action.payload,
+          [action.payload.id]: {
+            ...state.data[action.payload.id],
+            ...action.payload,
+          },
         },
       };
 

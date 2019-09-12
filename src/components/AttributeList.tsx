@@ -9,12 +9,12 @@ type Props = {
 
 export const AttributeList: React.FC<Props> = ({ list, elementId }) => {
   return (
-    <ul>
+    <ol>
       {list.map(attribute => (
         <li key={attribute.id}>
           <AttributeItem data={attribute} elementId={elementId} />
         </li>
       ))}
-    </ul>
+    </ol>
   );
 };

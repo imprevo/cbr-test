@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { AttributeList } from './AttributeList';
 import { TElement } from '../types';
+import { EditElementModal } from './EditElementModal';
 
 type Props = {
   data: TElement;
@@ -15,6 +16,7 @@ export const ElementItem: React.FC<Props> = ({ data, onRemove }) => {
       {attributes.length > 0 && (
         <AttributeList elementId={id} list={attributes} />
       )}
+      <EditElementModal id={id} name={name} />
       <button onClick={onRemove}>remove</button>
     </>
   );
