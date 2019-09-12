@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Button } from '../ui/Button';
 import { TAttribute, TId } from '../types';
 import { useAttributeActions } from './ElementContext';
 
@@ -13,7 +14,7 @@ export const AttributeItem: React.FC<Props> = ({ data, elementId }) => {
   return (
     <>
       [{id}] {name} = {value}
-      <button onClick={() => remove(elementId, id)}>remove</button>
+      <Button onClick={() => remove(elementId, id)}>remove</Button>
     </>
   );
 };

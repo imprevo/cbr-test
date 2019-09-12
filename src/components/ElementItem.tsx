@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Button } from '../ui/Button';
 import { AttributeList } from './AttributeList';
 import { TElement } from '../types';
 import { EditElementModal } from './EditElementModal';
@@ -17,7 +18,7 @@ export const ElementItem: React.FC<Props> = ({ data, onRemove }) => {
         <AttributeList elementId={id} list={attributes} />
       )}
       <EditElementModal id={id} name={name} />
-      <button onClick={onRemove}>remove</button>
+      <Button onClick={onRemove}>remove</Button>
     </>
   );
 };

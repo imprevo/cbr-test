@@ -1,5 +1,7 @@
 import * as React from 'react';
+import { Button } from '../ui/Button';
 import { useElementActions, useElementById } from './ElementContext';
+import { NameFormControl } from './NameFormControl';
 import { TId } from '../types';
 
 type Props = {
@@ -24,16 +26,8 @@ export const EditElementForm: React.FC<Props> = ({ id, onClose }) => {
   };
   return (
     <form onSubmit={onSubmit}>
-      <input
-        name="name"
-        placeholder="name"
-        type="text"
-        value={name}
-        onChange={onChange}
-        required
-        pattern="[a-zA-Z][a-zA-Z0-9]+"
-      />
-      <button type="submit">edit element</button>
+      <NameFormControl onChange={onChange} value={name} />
+      <Button type="submit">edit element</Button>
     </form>
   );
 };

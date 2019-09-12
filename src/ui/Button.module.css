@@ -1,0 +1,20 @@
+.button {
+  background: #007bff;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.button:hover {
+  background: #0069d9;
+}
+
+.button:focus {
+  border-color: #0069d9;
+}
+
+.button:active {
+  background: #0062cc;
+}
