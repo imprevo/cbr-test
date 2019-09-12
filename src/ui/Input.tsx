@@ -8,6 +8,7 @@ type Props = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required: boolean;
   pattern: string;
+  autoFocus?: boolean;
 };
 
 export const Input: React.FC<Props> = ({
@@ -17,6 +18,7 @@ export const Input: React.FC<Props> = ({
   onChange,
   required,
   pattern,
+  autoFocus,
 }) => {
   return (
     <input
@@ -28,6 +30,7 @@ export const Input: React.FC<Props> = ({
       onChange={onChange}
       required={required}
       pattern={pattern}
+      autoFocus={autoFocus}
     />
   );
 };

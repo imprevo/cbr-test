@@ -26,7 +26,7 @@ export const EditElementForm: React.FC<Props> = ({ id, onClose }) => {
   };
   return (
     <form onSubmit={onSubmit}>
-      <NameFormControl onChange={onChange} value={name} />
+      <NameFormControl onChange={onChange} value={name} autoFocus />
       <Button type="submit">edit element</Button>
     </form>
   );

@@ -23,7 +23,7 @@ export const AddElementForm: React.FC<Props> = ({ onClose }) => {
   };
   return (
     <form onSubmit={onSubmit}>
-      <NameFormControl onChange={onChange} value={name} />
+      <NameFormControl onChange={onChange} value={name} autoFocus />
       <Button type="submit">create element</Button>
     </form>
   );

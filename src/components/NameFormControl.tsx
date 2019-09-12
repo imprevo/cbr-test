@@ -5,9 +5,14 @@ import { FormRow } from '../ui/FormRow';
 type Props = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
+  autoFocus?: boolean;
 };
 
-export const NameFormControl: React.FC<Props> = ({ onChange, value }) => {
+export const NameFormControl: React.FC<Props> = ({
+  onChange,
+  value,
+  autoFocus,
+}) => {
   return (
     <FormRow label="Name:">
       <Input
@@ -17,6 +22,7 @@ export const NameFormControl: React.FC<Props> = ({ onChange, value }) => {
         onChange={onChange}
         required
         pattern="[a-zA-Z][a-zA-Z0-9]+"
+        autoFocus={autoFocus}
       />
     </FormRow>
   );
