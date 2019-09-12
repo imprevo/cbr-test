@@ -15,15 +15,15 @@ export const EditElementForm: React.FC<Props> = ({ id, onClose }) => {
   const { edit } = useElementActions();
   const [name, setName] = React.useState(element.name);
   const [attributes, setAttributes] = React.useState(element.attributes);
-  const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
   const onAttributeValueChange = (name: string, value: string) => {
     setAttributes(
       attributes.map(attribute =>
         name === attribute.name ? { ...attribute, value: value } : attribute
       )
     );
+  };
+  const onAttributeDelete = (name: string) => {
+    setAttributes(attributes.filter(attribute => name !== attribute.name));
   };
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -35,13 +35,14 @@ export const EditElementForm: React.FC<Props> = ({ id, onClose }) => {
   };
   return (
     <form onSubmit={onSubmit}>
-      <NameFormControl onChange={onNameChange} value={name} autoFocus />
+      <NameFormControl onChange={setName} value={name} autoFocus />
       {attributes.map((attribute, index) => (
         <AttributeFormControl
           key={index}
           name={attribute.name}
           value={attribute.value}
-          onChange={e => onAttributeValueChange(attribute.name, e.target.value)}
+          onChange={onAttributeValueChange}
+          onDelete={onAttributeDelete}
         />
       ))}
       <Button type="submit">Save</Button>

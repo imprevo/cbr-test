@@ -10,9 +10,6 @@ type Props = {
 export const AddElementForm: React.FC<Props> = ({ onClose }) => {
   const { add } = useElementActions();
   const [name, setName] = React.useState('');
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const trimmedName = name.trim();
@@ -23,7 +20,7 @@ export const AddElementForm: React.FC<Props> = ({ onClose }) => {
   };
   return (
     <form onSubmit={onSubmit}>
-      <NameFormControl onChange={onChange} value={name} autoFocus />
+      <NameFormControl onChange={setName} value={name} autoFocus />
       <Button type="submit">Create</Button>
     </form>
   );
