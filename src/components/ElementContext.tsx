@@ -21,21 +21,36 @@ export const useElementActions = () => {
   const [, dispatch] = React.useContext(StateContext);
 
   const add = React.useCallback(
-    (payload: TElement) => dispatch({ type: 'add', payload }),
+    (payload: TElement) => dispatch({ type: 'element/add', payload }),
     [dispatch]
   );
 
   const edit = React.useCallback(
-    (payload: TElement) => dispatch({ type: 'edit', payload }),
+    (payload: TElement) => dispatch({ type: 'element/edit', payload }),
     [dispatch]
   );
 
   const remove = React.useCallback(
-    (payload: TId) => dispatch({ type: 'remove', payload }),
+    (payload: TId) => dispatch({ type: 'element/remove', payload }),
     [dispatch]
   );
 
   return { add, edit, remove };
+};
+
+export const useAttributeActions = () => {
+  const [, dispatch] = React.useContext(StateContext);
+
+  const remove = React.useCallback(
+    (elementId: TId, attributeId: TId) =>
+      dispatch({
+        type: 'attribute/remove',
+        payload: { attributeId, elementId },
+      }),
+    [dispatch]
+  );
+
+  return { remove };
 };
 
 export const ElementProvider: React.FC = ({ children }) => {

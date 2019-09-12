@@ -22,7 +22,7 @@ export function findAllChildIds(data: TElementRecord, id: TId): TIdList {
   return children.concat(...childrenOfChildren);
 }
 
-export function removeChildById(obj: TElementRecord, key: TId): TElementRecord {
+export function omitChildById(obj: TElementRecord, key: TId): TElementRecord {
   if (!obj[key]) {
     return obj;
   }

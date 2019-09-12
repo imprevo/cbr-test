@@ -12,7 +12,9 @@ export const ElementItem: React.FC<Props> = ({ data, onRemove }) => {
   return (
     <>
       <span>{id}</span>
-      {attributes.length > 0 && <AttributeList list={attributes} />}
+      {attributes.length > 0 && (
+        <AttributeList elementId={id} list={attributes} />
+      )}
       <button onClick={onRemove}>remove</button>
     </>
   );
