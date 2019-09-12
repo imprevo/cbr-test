@@ -12,6 +12,7 @@ export type TAttributeList = TAttribute[];
 
 export type TElement = {
   id: TId;
+  name: string;
   attributes: TAttributeList;
   children: TIdList;
 };

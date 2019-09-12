@@ -8,10 +8,10 @@ type Props = {
 };
 
 export const ElementItem: React.FC<Props> = ({ data, onRemove }) => {
-  const { id, attributes } = data;
+  const { id, name, attributes } = data;
   return (
     <>
-      <span>{id}</span>
+      <span>{name}</span>
       {attributes.length > 0 && (
         <AttributeList elementId={id} list={attributes} />
       )}

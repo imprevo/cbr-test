@@ -22,13 +22,14 @@ export const useElementActions = () => {
   const [, dispatch] = React.useContext(StateContext);
 
   const add = React.useCallback(
-    (payload: { parentId: null | TId }) =>
+    (payload: { parentId: null | TId; name: string }) =>
       dispatch({
         type: 'element/add',
         payload: {
           parentId: payload.parentId,
           element: {
             id: nanoid(),
+            name: payload.name,
             attributes: [],
             children: [],
           },

@@ -4,6 +4,7 @@ export const elementsData: TElementData = {
   data: {
     el1: {
       id: 'el1',
+      name: 'el1',
       attributes: [
         { id: 'attr1', name: 'attr1', value: 'value1' },
         { id: 'attr2', name: 'attr2', value: 'value2' },
@@ -12,21 +13,25 @@ export const elementsData: TElementData = {
     },
     el2: {
       id: 'el2',
+      name: 'el2',
       attributes: [],
       children: [],
     },
     el3: {
       id: 'el3',
+      name: 'el3',
       attributes: [],
       children: ['el4'],
     },
     el4: {
       id: 'el4',
+      name: 'el4',
       attributes: [],
       children: ['el5'],
     },
     el5: {
       id: 'el5',
+      name: 'el5',
       attributes: [{ id: 'attr1', name: 'attr1', value: 'value1' }],
       children: [],
     },
