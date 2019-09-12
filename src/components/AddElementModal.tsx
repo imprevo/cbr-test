@@ -8,8 +8,8 @@ export const AddElementModal: React.FC = () => {
   const close = () => setShow(false);
   return (
     <>
-      <Button onClick={() => setShow(true)}>add element</Button>
-      <Modal show={show} title="Add element" onClose={close}>
+      <Button onClick={() => setShow(true)}>Create element</Button>
+      <Modal show={show} title="Create element" onClose={close}>
         <AddElementForm onClose={close} />
       </Modal>
     </>

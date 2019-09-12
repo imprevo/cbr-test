@@ -6,7 +6,11 @@ type Props = {
   onClick?: (event: React.MouseEvent) => void;
 };
 
-export const Button: React.FC<Props> = ({ children, type, onClick }) => {
+export const Button: React.FC<Props> = ({
+  children,
+  type = 'button',
+  onClick,
+}) => {
   return (
     <button className={styles.button} type={type} onClick={onClick}>
       {children}
