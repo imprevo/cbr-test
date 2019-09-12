@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { useElementActions } from './ElementContext';
 
-export const AddElementForm = () => {
+type Props = {
+  onClose: () => void;
+};
+
+export const AddElementForm: React.FC<Props> = ({ onClose }) => {
   const { add } = useElementActions();
   const [name, setName] = React.useState('');
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -12,12 +16,11 @@ export const AddElementForm = () => {
     const trimmedName = name.trim();
     if (trimmedName) {
       add({ parentId: null, name: trimmedName });
-      setName('');
+      onClose();
     }
   };
   return (
     <form onSubmit={onSubmit}>
-      <p>add</p>
       <input
         name="name"
         placeholder="name"
@@ -25,7 +28,7 @@ export const AddElementForm = () => {
         value={name}
         onChange={onChange}
         required
-        pattern="[a-zA-Z]"
+        pattern="[a-zA-Z]+"
       />
       <button type="submit">create element</button>
     </form>

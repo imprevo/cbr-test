@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { ElementProvider } from './ElementContext';
 import { ElementListRoot } from './ElementListRoot';
-import { AddElementForm } from './AddElementForm';
+import { AddElementModal } from './AddElementModal';
 
 export const App: React.FC = () => (
   <ElementProvider>
-    <AddElementForm />
+    <AddElementModal />
     <ElementListRoot />
   </ElementProvider>
 );
