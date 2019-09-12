@@ -3,7 +3,13 @@ import { omitChildById } from '../utils/element';
 
 type State = TElementData;
 
-type ActionElementAdd = { type: 'element/add'; payload: TElement };
+type ActionElementAdd = {
+  type: 'element/add';
+  payload: {
+    parentId: null | TId;
+    element: TElement;
+  };
+};
 type ActionElementEdit = { type: 'element/edit'; payload: TElement };
 type ActionElementRemove = { type: 'element/remove'; payload: TId };
 type ActionAttributeAdd = {
@@ -35,12 +41,32 @@ type Actions =
 export function elementReducer(state: State, action: Actions) {
   switch (action.type) {
     case 'element/add':
+      if (
+        action.payload.parentId !== null &&
+        action.payload.parentId in state.data
+      ) {
+        return {
+          ...state,
+          data: {
+            ...state.data,
+            [action.payload.parentId]: {
+              ...state.data[action.payload.parentId],
+              children: [
+                ...state.data[action.payload.parentId].children,
+                action.payload.element.id,
+              ],
+            },
+            [action.payload.element.id]: action.payload.element,
+          },
+        };
+      }
       return {
         ...state,
         data: {
           ...state.data,
-          [action.payload.id]: action.payload,
+          [action.payload.element.id]: action.payload.element,
         },
+        root: state.root.concat(action.payload.element.id),
       };
 
     case 'element/edit':

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import nanoid from 'nanoid';
 import { TElement, TId } from '../types';
 import { elementReducer } from '../reducers/elementReducer';
 import { elementsData } from '../mocks/elements';
@@ -21,7 +22,18 @@ export const useElementActions = () => {
   const [, dispatch] = React.useContext(StateContext);
 
   const add = React.useCallback(
-    (payload: TElement) => dispatch({ type: 'element/add', payload }),
+    (payload: { parentId: null | TId }) =>
+      dispatch({
+        type: 'element/add',
+        payload: {
+          parentId: payload.parentId,
+          element: {
+            id: nanoid(),
+            attributes: [],
+            children: [],
+          },
+        },
+      }),
     [dispatch]
   );
 
