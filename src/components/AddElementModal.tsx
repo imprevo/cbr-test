@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { Modal } from '../ui/Modal';
 import { AddElementForm } from './AddElementForm';
-import { Modal } from './Modal';
 
 export const AddElementModal: React.FC = () => {
   const [show, setShow] = React.useState(false);

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Modal } from './Modal';
+import { Modal } from '../ui/Modal';
 import { EditElementForm } from './EditElementForm';
 import { TId } from '../types';
 
