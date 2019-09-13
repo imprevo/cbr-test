@@ -2,6 +2,7 @@
   "name": "cbr-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://imprevo.github.io/cbr-test",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.10.2",
     "@types/classnames": "^2.2.9",
@@ -11,6 +12,7 @@
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
     "classnames": "^2.2.6",
+    "gh-pages": "^2.1.1",
     "nanoid": "^2.1.1",
     "normalize.css": "^8.0.1",
     "react": "^16.9.0",
@@ -19,6 +21,8 @@
     "typescript": "3.6.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
