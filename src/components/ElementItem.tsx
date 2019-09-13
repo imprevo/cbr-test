@@ -8,19 +8,16 @@ import styles from './ElementItem.module.css';
 
 type Props = {
   data: TElement;
-  open: boolean;
   onRemove: () => void;
-  onToggle: () => void;
 };
 
-export const ElementItem: React.FC<Props> = ({
-  children,
-  data,
-  onRemove,
-  onToggle,
-  open,
-}) => {
+export const ElementItem: React.FC<Props> = ({ children, data, onRemove }) => {
+  const [open, setOpen] = React.useState(true);
+  const onToggle = React.useCallback(() => setOpen(!open), [open, setOpen]);
+
   const { id, name, attributes } = data;
+  const showOpen = open && children;
+
   return (
     <span className={styles.element}>
       <span className={styles.target}>
@@ -30,7 +27,7 @@ export const ElementItem: React.FC<Props> = ({
             onClick={onToggle}
           />
         )}
-        <Tag selfClosed={!open}>
+        <Tag selfClosed={!showOpen}>
           {name}
           {attributes.map(({ id, name, value }) => (
             <Attribute key={id} name={name} value={value} />
@@ -42,7 +39,7 @@ export const ElementItem: React.FC<Props> = ({
           <ButtonIcon name="trash" onClick={onRemove} />
         </span>
       </span>
-      {open && (
+      {showOpen && (
         <>
           {children}
           <Tag closed>{name}</Tag>

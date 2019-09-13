@@ -2,6 +2,7 @@ import * as React from 'react';
 import { TIdList, TId } from '../types';
 import { ElementItem } from './ElementItem';
 import { useElementActions, useElementById } from './ElementContext';
+import styles from './ElementList.module.css';
 
 type ElementListProps = {
   list: TIdList;
@@ -9,7 +10,7 @@ type ElementListProps = {
 
 export const ElementList: React.FC<ElementListProps> = ({ list }) => {
   return (
-    <ul>
+    <ul className={styles.list}>
       {list.map(id => (
         <li key={id}>
           <ElementListItem id={id} />
@@ -27,18 +28,10 @@ export const ElementListItem: React.FC<ElementListItemProps> = ({ id }) => {
   const element = useElementById(id);
   const { remove } = useElementActions();
   const onRemove = React.useCallback(() => remove(id), [remove, id]);
-  const [open, setOpen] = React.useState(true);
-  const onToggle = React.useCallback(() => setOpen(!open), [open, setOpen]);
-  const hasChild = element.children.length > 0;
 
   return (
-    <ElementItem
-      data={element}
-      onRemove={onRemove}
-      open={open && hasChild}
-      onToggle={onToggle}
-    >
-      {hasChild && <ElementList list={element.children} />}
+    <ElementItem data={element} onRemove={onRemove}>
+      {element.children.length > 0 && <ElementList list={element.children} />}
     </ElementItem>
   );
 };

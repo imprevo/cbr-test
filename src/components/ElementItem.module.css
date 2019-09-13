@@ -8,6 +8,11 @@
   display: none;
 }
 
+.target {
+  display: inline-block;
+  width: 100%;
+}
+
 .target:hover .buttons {
   display: inline-block;
 }
