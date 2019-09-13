@@ -1,0 +1,18 @@
+.button {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 0.8em;
+  padding: 0 0.2em;
+  opacity: 0.5;
+}
+
+.button:hover {
+  opacity: 1;
+  /* background: #0069d9; */
+}
+
+.button:active {
+  color: #000;
+  /* background: #0062cc; */
+}

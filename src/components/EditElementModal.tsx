@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button } from '../ui/Button';
+import { ButtonIcon } from '../ui/ButtonIcon';
 import { Modal } from '../ui/Modal';
 import { EditElementForm } from './EditElementForm';
 import { TId } from '../types';
@@ -16,7 +16,7 @@ export const EditElementModal: React.FC<Props> = ({ id, name }) => {
 
   return (
     <>
-      <Button onClick={open}>Edit element</Button>
+      <ButtonIcon name="pen" onClick={open} />
       <Modal show={show} title={`Edit element - ${name}`} onClose={close}>
         <EditElementForm id={id} onClose={close} />
       </Modal>

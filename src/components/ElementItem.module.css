@@ -1,0 +1,13 @@
+.element {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.3rem;
+}
+
+.buttons {
+  display: none;
+}
+
+.target:hover .buttons {
+  display: inline-block;
+}
