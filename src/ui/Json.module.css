@@ -1,0 +1,21 @@
+.block {
+  display: inline-block;
+  width: 100%;
+  color: #03a9f4;
+}
+
+.string {
+  color: #ff9800;
+}
+
+.padded {
+  padding-left: 2em;
+}
+
+.comma:after {
+  content: ',';
+}
+
+.comma:last-child:after {
+  display: none;
+}
