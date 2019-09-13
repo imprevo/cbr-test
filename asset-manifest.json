@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/cbr-test/static/css/main.1c3f5ede.chunk.css",
+    "main.js": "/cbr-test/static/js/main.611f2fab.chunk.js",
+    "main.js.map": "/cbr-test/static/js/main.611f2fab.chunk.js.map",
+    "runtime~main.js": "/cbr-test/static/js/runtime~main.5e614e20.js",
+    "runtime~main.js.map": "/cbr-test/static/js/runtime~main.5e614e20.js.map",
+    "static/css/2.33c4295e.chunk.css": "/cbr-test/static/css/2.33c4295e.chunk.css",
+    "static/js/2.0dcb1957.chunk.js": "/cbr-test/static/js/2.0dcb1957.chunk.js",
+    "static/js/2.0dcb1957.chunk.js.map": "/cbr-test/static/js/2.0dcb1957.chunk.js.map",
+    "index.html": "/cbr-test/index.html",
+    "precache-manifest.5cb4020bbc5b1bc30f96a862eec50850.js": "/cbr-test/precache-manifest.5cb4020bbc5b1bc30f96a862eec50850.js",
+    "service-worker.js": "/cbr-test/service-worker.js",
+    "static/css/2.33c4295e.chunk.css.map": "/cbr-test/static/css/2.33c4295e.chunk.css.map",
+    "static/css/main.1c3f5ede.chunk.css.map": "/cbr-test/static/css/main.1c3f5ede.chunk.css.map",
+    "static/media/index.css": "/cbr-test/static/media/fa-solid-900.d6d8d5da.woff2"
+  }
+}
