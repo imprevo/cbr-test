@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ButtonIcon } from '../ui/ButtonIcon';
 import { Tag, Attribute } from '../ui/Tag';
 import { TElement } from '../types';
+import { AddChildElementModal } from './AddChildElementModal';
 import { EditElementModal } from './EditElementModal';
 import styles from './ElementItem.module.css';
 
@@ -36,6 +37,7 @@ export const ElementItem: React.FC<Props> = ({
           ))}
         </Tag>
         <span className={styles.buttons}>
+          <AddChildElementModal id={id} name={name} />
           <EditElementModal id={id} name={name} />
           <ButtonIcon name="trash" onClick={onRemove} />
         </span>
