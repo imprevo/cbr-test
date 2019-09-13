@@ -23,10 +23,12 @@ export const ElementItem: React.FC<Props> = ({
   return (
     <span className={styles.element}>
       <span className={styles.target}>
-        <ButtonIcon
-          name={open ? 'caret-down' : 'caret-right'}
-          onClick={onToggle}
-        />
+        {children && (
+          <ButtonIcon
+            name={open ? 'caret-down' : 'caret-right'}
+            onClick={onToggle}
+          />
+        )}
         <Tag selfClosed={!open}>
           {name}
           {attributes.map(({ id, name, value }) => (

@@ -29,15 +29,16 @@ export const ElementListItem: React.FC<ElementListItemProps> = ({ id }) => {
   const onRemove = React.useCallback(() => remove(id), [remove, id]);
   const [open, setOpen] = React.useState(true);
   const onToggle = React.useCallback(() => setOpen(!open), [open, setOpen]);
+  const hasChild = element.children.length > 0;
 
   return (
     <ElementItem
       data={element}
       onRemove={onRemove}
-      open={open}
+      open={open && hasChild}
       onToggle={onToggle}
     >
-      {element.children.length > 0 && <ElementList list={element.children} />}
+      {hasChild && <ElementList list={element.children} />}
     </ElementItem>
   );
 };
