@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { TIdList, TId } from '../features/element-core/types';
+import { TIdList, TId } from '../element-core/types';
 import {
   useElementActions,
   useElementById,
-} from '../features/element-core/ElementContext';
+} from '../element-core/ElementContext';
 import { ElementItem } from './ElementItem';
 import styles from './ElementList.module.css';
 

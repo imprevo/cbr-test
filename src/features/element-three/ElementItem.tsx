@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { ButtonIcon } from '../ui/ButtonIcon';
-import { Tag, Attribute } from '../ui/Tag';
-import { TElement } from '../features/element-core/types';
-import { AddChildElementModal } from '../features/element-form/AddChildElementModal';
-import { EditElementModal } from '../features/element-form/EditElementModal';
+import { ButtonIcon } from '../../ui/ButtonIcon';
+import { Tag, Attribute } from '../../ui/Tag';
+import { TElement } from '../element-core/types';
+import { AddChildElementModal } from '../element-form/AddChildElementModal';
+import { EditElementModal } from '../element-form/EditElementModal';
 import styles from './ElementItem.module.css';
 
 type Props = {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useElementState } from '../features/element-core/ElementContext';
+import { useElementState } from '../element-core/ElementContext';
 import { ElementList } from './ElementList';
 
 export const ElementListRoot: React.FC = () => {
