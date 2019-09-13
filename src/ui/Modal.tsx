@@ -9,20 +9,6 @@ type Props = {
 };
 
 export const Modal: React.FC<Props> = ({ children, show, title, onClose }) => {
-  React.useEffect(() => {
-    if (!show) {
-      return;
-    }
-    function onEsc(e: KeyboardEvent) {
-      if (e.code === 'Escape') {
-        onClose();
-      }
-    }
-
-    document.addEventListener('keydown', onEsc);
-    return () => document.removeEventListener('keydown', onEsc);
-  }, [show, onClose]);
-
   if (!show) {
     return null;
   }

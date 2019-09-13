@@ -1,11 +1,10 @@
 import * as React from 'react';
-import nanoid from 'nanoid';
 import { Button } from '../ui/Button';
 import { useElementActions, useElementById } from './ElementContext';
 import { NameFormControl } from './NameFormControl';
-import { TId } from '../types';
+import { TId, TAttribute } from '../types';
 import { AttributeFormControl } from './AttributeFormControl';
-import { NewAttributeFormControl } from './NewAttributeFormControl';
+import { AddAttributeModal } from './AddAttributeModal';
 import { InputGroup } from '../ui/InputGroup';
 
 type Props = {
@@ -18,7 +17,6 @@ export const EditElementForm: React.FC<Props> = ({ id, onClose }) => {
   const { edit } = useElementActions();
   const [name, setName] = React.useState(element.name);
   const [attributes, setAttributes] = React.useState(element.attributes);
-  const [show, setShow] = React.useState(false);
 
   const onAttributeValueChange = (name: string, value: string) => {
     setAttributes(
@@ -27,14 +25,16 @@ export const EditElementForm: React.FC<Props> = ({ id, onClose }) => {
       )
     );
   };
-  const onAttributeAdd = (name: string, value: string) => {
-    setAttributes(attributes.concat({ id: nanoid(), name, value }));
+  const onAttributeAdd = (attribute: TAttribute) => {
+    setAttributes(attributes.concat(attribute));
   };
   const onAttributeDelete = (name: string) => {
     setAttributes(attributes.filter(attribute => name !== attribute.name));
   };
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    e.stopPropagation();
+
     const trimmedName = name.trim();
     if (trimmedName) {
       edit({ ...element, attributes, name: trimmedName });
@@ -53,16 +53,13 @@ export const EditElementForm: React.FC<Props> = ({ id, onClose }) => {
           onDelete={onAttributeDelete}
         />
       ))}
-      {show ? (
-        <NewAttributeFormControl
+      <InputGroup align="center">
+        <AddAttributeModal
+          attributes={attributes}
+          name={name}
           onSubmit={onAttributeAdd}
-          onCancel={() => setShow(false)}
         />
-      ) : (
-        <InputGroup align="center">
-          <Button onClick={() => setShow(true)}>Add new attribute</Button>
-        </InputGroup>
-      )}
+      </InputGroup>
       <Button type="submit">Save</Button>
     </form>
   );

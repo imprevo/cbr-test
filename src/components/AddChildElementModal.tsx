@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Button } from '../ui/Button';
 import { ButtonIcon } from '../ui/ButtonIcon';
 import { Modal } from '../ui/Modal';
 import { AddElementForm } from './AddElementForm';
