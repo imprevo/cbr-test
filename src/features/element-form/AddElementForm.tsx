@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Button } from '../ui/Button';
-import { useElementActions } from './ElementContext';
+import { Button } from '../../ui/Button';
+import { useElementActions } from '../element-core//ElementContext';
 import { NameFormControl } from './NameFormControl';
-import { TId } from '../types';
+import { TId } from '../element-core/types';
 
 type Props = {
   id?: TId;

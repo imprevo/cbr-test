@@ -1,4 +1,4 @@
-import { TElementData } from '../types';
+import { TElementData } from './types';
 
 export const elementsData: TElementData = {
   data: {

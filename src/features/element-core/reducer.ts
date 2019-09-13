@@ -1,5 +1,5 @@
-import { TElement, TId, TElementData, TAttribute } from '../types';
-import { omitChildById } from '../utils/element';
+import { TElement, TId, TElementData, TAttribute } from './types';
+import { omitChildById } from './utils';
 
 type State = TElementData;
 

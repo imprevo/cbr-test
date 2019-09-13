@@ -1,4 +1,4 @@
-import { TId, TIdList, TElementRecord } from '../types';
+import { TId, TIdList, TElementRecord } from './types';
 
 export function isOneOfList(key: TId, list: TIdList): boolean {
   return list.some(id => id === key);

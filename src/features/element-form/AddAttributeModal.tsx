@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Button } from '../ui/Button';
-import { Modal } from '../ui/Modal';
+import { Button } from '../../ui/Button';
+import { Modal } from '../../ui/Modal';
 import { AddAttributeForm } from './AddAttributeForm';
-import { TAttributeList, TAttribute } from '../types';
+import { TAttributeList, TAttribute } from '../element-core/types';
 
 type Props = {
   name: string;

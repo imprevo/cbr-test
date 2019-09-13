@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Input } from '../ui/Input';
-import { FormRow } from '../ui/FormRow';
-import { InputGroup } from '../ui/InputGroup';
+import { Input } from '../../ui/Input';
+import { FormRow } from '../../ui/FormRow';
+import { InputGroup } from '../../ui/InputGroup';
 
 type Props = {
   onChange: (name: string) => void;
@@ -9,21 +9,21 @@ type Props = {
   autoFocus?: boolean;
 };
 
-export const ValueFormControl: React.FC<Props> = ({
+export const NameFormControl: React.FC<Props> = ({
   onChange,
   value,
   autoFocus,
 }) => {
   return (
-    <FormRow label="Value:">
+    <FormRow label="Name:">
       <InputGroup>
         <Input
-          name="value"
-          placeholder="Enter value"
+          name="name"
+          placeholder="Enter name"
           value={value}
           onChange={e => onChange(e.target.value)}
           required
-          pattern="[a-zA-Z0-9]+"
+          pattern="[a-zA-Z][a-zA-Z0-9]+"
           autoFocus={autoFocus}
         />
       </InputGroup>

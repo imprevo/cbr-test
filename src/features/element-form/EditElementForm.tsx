@@ -1,11 +1,14 @@
 import * as React from 'react';
-import { Button } from '../ui/Button';
-import { useElementActions, useElementById } from './ElementContext';
+import { Button } from '../../ui/Button';
+import { InputGroup } from '../../ui/InputGroup';
+import {
+  useElementActions,
+  useElementById,
+} from '../element-core/ElementContext';
 import { NameFormControl } from './NameFormControl';
-import { TId, TAttribute } from '../types';
+import { TId, TAttribute } from '../element-core/types';
 import { AttributeFormControl } from './AttributeFormControl';
 import { AddAttributeModal } from './AddAttributeModal';
-import { InputGroup } from '../ui/InputGroup';
 
 type Props = {
   id: TId;

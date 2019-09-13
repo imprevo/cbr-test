@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Input } from '../ui/Input';
-import { FormRow } from '../ui/FormRow';
-import { Button } from '../ui/Button';
-import { InputGroup } from '../ui/InputGroup';
+import { Input } from '../../ui/Input';
+import { FormRow } from '../../ui/FormRow';
+import { Button } from '../../ui/Button';
+import { InputGroup } from '../../ui/InputGroup';
 
 type Props = {
   onChange: (name: string, value: string) => void;

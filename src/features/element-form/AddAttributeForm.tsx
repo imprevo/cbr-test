@@ -1,10 +1,10 @@
 import * as React from 'react';
 import nanoid from 'nanoid';
-import { Button } from '../ui/Button';
-import { InputGroup } from '../ui/InputGroup';
+import { Button } from '../../ui/Button';
+import { InputGroup } from '../../ui/InputGroup';
 import { NameFormControl } from './NameFormControl';
 import { ValueFormControl } from './ValueFormControl';
-import { TAttributeList, TAttribute } from '../types';
+import { TAttributeList, TAttribute } from '../element-core/types';
 
 type Props = {
   attributes: TAttributeList;

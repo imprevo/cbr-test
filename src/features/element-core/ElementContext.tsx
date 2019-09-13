@@ -1,8 +1,8 @@
 import * as React from 'react';
 import nanoid from 'nanoid';
-import { TElement, TId } from '../types';
-import { elementReducer } from '../reducers/elementReducer';
-import { elementsData } from '../mocks/elements';
+import { TElement, TId } from './types';
+import { elementReducer } from './reducer';
+import { elementsData } from './mock-data';
 
 const useElementReducer = () => React.useReducer(elementReducer, elementsData);
 

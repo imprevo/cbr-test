@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { TIdList, TId } from '../types';
+import { TIdList, TId } from '../features/element-core/types';
+import {
+  useElementActions,
+  useElementById,
+} from '../features/element-core/ElementContext';
 import { ElementItem } from './ElementItem';
-import { useElementActions, useElementById } from './ElementContext';
 import styles from './ElementList.module.css';
 
 type ElementListProps = {
